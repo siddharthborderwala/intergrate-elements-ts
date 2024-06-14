@@ -1,13 +1,5 @@
-"use client";
-
-import { useMemo } from "react";
 import { Space_Grotesk } from "next/font/google";
-import { getDefaultModal } from "@leapwallet/connect-wallet-react";
-import { chains, assets } from "chain-registry/mainnet";
-import { ChainProvider } from "@cosmos-kit/react-lite";
-import { wallets as keplrWallets } from "@cosmos-kit/keplr";
-import { wallets as leapWallets } from "@cosmos-kit/leap";
-import { walletModalConfig, walletConnectOptions } from "@/config";
+import dynamic from "next/dynamic";
 
 import "./globals.css";
 import "@leapwallet/react-ui/styles.css";
@@ -16,21 +8,18 @@ import "@leapwallet/elements/styles.css";
 
 const font = Space_Grotesk({ subsets: ["latin"] });
 
-const allWallets = [...leapWallets, ...keplrWallets];
+const WalletProviderDynamic = dynamic(
+  () => import("@/components/wallet-provider"),
+  {
+    ssr: false,
+  }
+);
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const walletModal = useMemo(
-    () =>
-      getDefaultModal({
-        walletConfig: walletModalConfig,
-      }),
-    []
-  );
-
   return (
     <html lang="en">
       <body
@@ -48,15 +37,7 @@ export default function RootLayout({
             </a>
           </div>
         </div>
-        <ChainProvider
-          chains={chains}
-          assetLists={assets}
-          wallets={allWallets}
-          walletModal={walletModal}
-          walletConnectOptions={walletConnectOptions}
-        >
-          {children}
-        </ChainProvider>
+        <WalletProviderDynamic>{children}</WalletProviderDynamic>
       </body>
     </html>
   );

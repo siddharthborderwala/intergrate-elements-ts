@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { WalletConnect } from "@leapwallet/connect-wallet-react";
 import { Spinner } from "@phosphor-icons/react/Spinner";
 
-const SwapsDynamic = dynamic(() => import("@/components/swaps"), {
+const SwapsDynamic = dynamic(() => import("@/components/elements-swaps"), {
   ssr: false,
   loading: () => (
     <div className="flex items-center justify-center w-full h-[34rem]">
@@ -21,7 +21,7 @@ export default function Home() {
     <>
       <header className="max-w-4xl mx-auto flex items-center justify-between px-4 py-6">
         <h1>🐸 Leap + ⚛️ Cosmos = 🚀 WAGMI</h1>
-        <div className="flex gap-4">
+        <div className="flex gap-6 items-center">
           <a
             href="https://https://docs.leapwallet.io/cosmos/elements/get-started-in-10-minutes"
             target="_blank"

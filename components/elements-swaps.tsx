@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useMemo } from "react";
 import { ElementsProvider, Swaps, WalletType } from "@leapwallet/elements";
 import { useChain } from "@cosmos-kit/react-lite";
