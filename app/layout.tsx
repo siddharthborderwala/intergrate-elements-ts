@@ -36,13 +36,13 @@ export default function RootLayout({
       <body
         className={`leap-ui dark bg-background h-[100svh] ${font.className}`}
       >
-        <div className="w-full bg-green-500 py-2">
+        <div className="w-full bg-primary py-2">
           <div className="max-w-5xl mx-auto flex items-center justify-center">
             <a
               href="https://swapfast.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black font-medium"
+              className="text-black font-medium outline-none"
             >
               Try Swapfast ⚡ the fastest way to swap tokens on Cosmos
             </a>

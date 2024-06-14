@@ -46,7 +46,16 @@ export default function Home() {
     <>
       <header className="max-w-4xl mx-auto flex items-center justify-between px-4 py-6">
         <h1>🐸 Leap + ⚛️ Cosmos = 🚀 WAGMI</h1>
-        <WalletConnect />
+        <div className="flex gap-4">
+          <a
+            href="https://https://docs.leapwallet.io/cosmos/elements/get-started-in-10-minutes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Docs
+          </a>
+          <WalletConnect />
+        </div>
       </header>
       <main className="max-w-4xl mx-auto px-4 py-8 flex justify-center">
         <ElementsProvider
